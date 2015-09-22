@@ -5,6 +5,13 @@ require "ast"
 
 module ErlPort
   module AstMapping
+
+    module_function
+    def install_encoder
+      ErlPort::Erlang.set_encoder {|v| encode_term v}
+      :ok
+    end
+
     module_function
     def encode_term term
       if term.respond_to? :to_ast
