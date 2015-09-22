@@ -5,7 +5,7 @@ require 'erlport/ast_mapping/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "erlport-ast_mapping"
-  spec.version       = Erlport::AstMapping::VERSION
+  spec.version       = ErlPort::AstMapping::VERSION
   spec.authors       = ["johnlinvc"]
   spec.email         = ["johnlinvc@gmail.com"]
 
@@ -33,4 +33,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "guard-rspec"
   spec.add_development_dependency "parser"
+  spec.add_development_dependency "pry-byebug"
 end
