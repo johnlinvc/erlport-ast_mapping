@@ -13,6 +13,12 @@ module ErlPort
     end
 
     module_function
+    def parse(src)
+      src = src.map(&:chr).join("")
+      ast = Parser::CurrentRuby.parse(src)
+    end
+
+    module_function
     def encode_term term
       if term.respond_to? :to_ast
         encode_ast term.to_ast
