@@ -2,7 +2,7 @@ require "erlport/ast_mapping/version"
 require "erlport/erlterms"
 require "erlport/erlang"
 require "ast"
-require "parser"
+require "parser/current"
 
 module ErlPort
   module AstMapping
