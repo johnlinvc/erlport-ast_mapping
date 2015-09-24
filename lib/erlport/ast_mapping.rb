@@ -24,7 +24,7 @@ module ErlPort
       if term.respond_to? :to_ast
         encode_ast term.to_ast
       else
-        ErlPost::ErlTerm.encode_term term
+        ErlPort::ErlTerm.encode_term term
       end
     end
     Tuple = ErlPort::ErlTerm::Tuple
