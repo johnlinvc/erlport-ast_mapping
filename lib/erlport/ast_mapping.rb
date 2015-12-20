@@ -29,13 +29,12 @@ module ErlPort
     end
     Tuple = ErlPort::ErlTerm::Tuple
 
+    NotAstError = Class.new
+
     module_function
     def encode_ast ast
-      if ast.respond_to? :to_ast
-        Tuple.new([:ast, :type, ast.type, :children, ast.children.map{|c| encode_ast(c)}])
-      else
-        ast
-      end
+      throw NotAstError unless ast.respond_to? :to_ast
+      Tuple.new([:ast, :type, ast.type, :children, ast.children.map{|c| encode_term(c)}])
     end
   end
 end
