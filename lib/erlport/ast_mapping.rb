@@ -15,7 +15,6 @@ module ErlPort
 
     module_function
     def parse(src)
-      src = src.map(&:chr).join("")
       ast = ::Parser::CurrentRuby.parse(src)
     end
 
