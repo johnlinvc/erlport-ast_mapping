@@ -6,10 +6,12 @@ require "parser/current"
 
 module ErlPort
   module AstMapping
+    include ErlPort::ErlTerm
+    include ErlPort::Erlang
 
     module_function
     def install_encoder
-      ErlPort::Erlang.set_encoder {|v| encode_term v}
+      ErlPort::Erlang.set_encoder {|v| ast_encoder v}
       :ok
     end
 
@@ -20,7 +22,7 @@ module ErlPort
     end
 
     module_function
-    def encode_term term
+    def ast_encoder term
       if term.respond_to? :to_ast
         encode_ast term.to_ast
       else
