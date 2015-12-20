@@ -36,7 +36,7 @@ module ErlPort
     module_function
     def encode_ast ast
       throw NotAstError unless ast.respond_to? :to_ast
-      Tuple.new([:ast, :type, ast.type, :children, ast.children.map{|c| encode_term(c)}])
+      Tuple.new([:ast, :type, ast.type, :children, ast.children.map{|c| ast_encoder(c)}])
     end
   end
 end
