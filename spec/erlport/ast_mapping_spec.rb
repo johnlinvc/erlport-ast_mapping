@@ -49,7 +49,7 @@ describe ErlPort::AstMapping do
     expect( ErlPort::AstMapping.ast_encoder(term)[2] ).to eq :str
   end
 
-  xit "can parse a neg int" do
+  it "can parse a neg int" do
     neg_int_str = <<-NEG_INT
     -1
     NEG_INT
