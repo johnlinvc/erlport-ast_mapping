@@ -23,7 +23,7 @@ module ErlPort
 
     module_function
     def parse_string(str)
-      ::Parser::Ruby23.parse(str)
+      ::Parser::CurrentRuby.parse(str)
     end
 
     module_function
