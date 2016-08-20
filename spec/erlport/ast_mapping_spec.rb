@@ -57,4 +57,11 @@ describe ErlPort::AstMapping do
     expect(ErlPort::AstMapping.ast_encoder(term)[4]).to eq([-1])
   end
 
+  it "can parse with ord array" do
+    ord_array = "1+1".each_char.map(&:ord)
+    term = ErlPort::AstMapping.parse(ord_array)
+    tuple = ErlPort::AstMapping.ast_encoder(term)
+    expect(tuple[0]).to eq :ast
+  end
+
 end

@@ -18,7 +18,7 @@ module ErlPort
     module_function
     def parse(src)
       str = src.map(&:chr).join("")
-      parse_string(src)
+      parse_string(str)
     end
 
     module_function
