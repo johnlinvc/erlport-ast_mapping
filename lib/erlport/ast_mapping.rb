@@ -2,7 +2,7 @@ require "erlport/ast_mapping/version"
 require "erlport/erlterms"
 require "erlport/erlang"
 require "ast"
-require "parser/ruby23"
+require "parser/current"
 
 module ErlPort
   module AstMapping
@@ -23,7 +23,7 @@ module ErlPort
 
     module_function
     def parse_string(str)
-      ::Parser::CurrentRuby.parse(str)
+      Parser::CurrentRuby.parse(str)
     end
 
     module_function
