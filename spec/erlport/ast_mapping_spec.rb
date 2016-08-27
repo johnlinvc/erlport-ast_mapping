@@ -41,6 +41,14 @@ describe ErlPort::AstMapping do
     expect( ErlPort::AstMapping.ast_encoder(term)[2] ).to eq :class
   end
 
+  it "can parse pipedot" do
+    pipedot_str = <<-PIPEDOT
+    "hello pipdot"|.upcase
+    PIPEDOT
+    term = ErlPort::AstMapping.parse_string(pipedot_str)
+    expect( ErlPort::AstMapping.ast_encoder(term)[2] ).to eq :psend
+  end
+
   it "can parse a string" do
     string_str = <<-STR_STR
     "the quick brown fox jumps over the lazy dog"
