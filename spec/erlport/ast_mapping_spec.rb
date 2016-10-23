@@ -72,4 +72,11 @@ describe ErlPort::AstMapping do
     expect(tuple[0]).to eq :ast
   end
 
+  it "can parse __FILE__" do
+    under_score_file = "__FILE__"
+    term = ErlPort::AstMapping.parse_string(under_score_file)
+    tuple = ErlPort::AstMapping.ast_encoder(term)
+    expect(tuple[2]).to eq :__FILE__
+  end
+
 end
