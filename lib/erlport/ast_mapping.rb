@@ -23,7 +23,9 @@ module ErlPort
 
     module_function
     def parse_string(str)
-      Parser::CurrentRuby.parse(str)
+      parser = Parser::CurrentRuby.new
+      parser.builder.emit_file_line_as_literals = false
+      parser.parse(str)
     end
 
     module_function
